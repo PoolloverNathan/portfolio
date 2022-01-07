@@ -1,0 +1,67 @@
+.center, .image-showcase h3 {
+  margin: auto;
+  text-align: center;
+}
+
+body {
+  color: white;
+  background: gray;
+}
+
+img {
+  border-radius: 5px;
+  margin: auto;
+  width: 100%;
+}
+
+.image-showcase {
+  padding: 5px;
+  color: black;
+  background: white;
+}
+
+.image-showcase:not(:fullscreen) {
+  border: thin solid gray;
+  border-radius: 15px;
+  max-width: 30%;
+}
+
+.rel {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.ib {
+  display: inline-block;
+}
+
+.back {
+  background: black;
+  color: white;
+  text-align: center;
+  opacity: .5;
+}
+
+.mainbox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.allcenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#header {
+  position: sticky;
+  top: 0;
+  background: inherit;
+  z-index: 999999;
+}
