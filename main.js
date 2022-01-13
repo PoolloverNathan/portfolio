@@ -20,11 +20,15 @@ document.addEventListener("keydown", e => {
   if (e.key == "s" && e.ctrlKey) {
     if (document.fullscreenElement instanceof HTMLImageElement) {
       e.preventDefault();
-      const downloadA = document.createElement("a");
-      downloadA.href = downloadA.download = document.fullscreenElement.src;
-      if (downloadA.href.includes("placekiteen")) {
-        alert("Placeholder kittens cannot be downloaded at this time.")
+      const imgSrc = document.fullscreenElement.src;
+      if (imgSrc.includes("placekitten")) {
+        alert("Placeholder kittens cannot be downloaded at this time.");
+        downloadA.remove()
       } else {
+        const downloadA = document.createElement("a");
+        const splitHref = (downloadA.href = imgSrc).split("/");
+        const [name, ext] = splitHref[splitHref.length-1].split(".")
+        downloadA.download = `NK-${name}#${Math.floor(Math.random() * 1000)}.${ext}`;
         window.requestAnimationFrame(() => {
           downloadA.click();
           downloadA.remove();
